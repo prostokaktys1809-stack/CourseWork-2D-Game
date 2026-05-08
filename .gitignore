@@ -1,0 +1,65 @@
+
+# Godot 4 project
+
+
+.godot/                       # Локальні налаштування редактора
+.import/                       # Імпортовані ресурси
+.export/                       # Експорти
+.binary/                       # Тимчасові бінарні файли
+
+# OS-specific files
+.DS_Store                      
+Thumbs.db                       
+desktop.ini                     
+
+
+# C++ / GDExtension build files
+
+
+# CMake build folders and files
+/build/                        
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compiled object files and libraries
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+*.exe
+
+# IDE / editor files
+.vscode/
+.idea/
+*.vcxproj*
+*.sln
+
+
+# Platform-specific folders / exports
+
+
+/android/                       
+/.gradle/                        
+
+*.apk                            
+*.aab                            
+*.zip                            
+*.pck
+
+/html5/                          # HTML5 export folder
+
+# Temporary, log, and backup files
+
+
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.old
+*.backup
