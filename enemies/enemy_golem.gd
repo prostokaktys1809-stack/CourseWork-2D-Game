@@ -27,7 +27,7 @@ func _ready():
 			point_positions.append(point.global_position)
 		current_point = point_positions[current_point_position]
 	else:
-		print("No patrol pointc")
+		print("No patrol points")
 	
 	timer.wait_time = wsit_time
 	
@@ -86,3 +86,7 @@ func enemy_animations():
 
 func _on_timer_timeout() -> void:
 	can_walk = true
+
+
+func _on_area_2d_area_entered(area:):
+	print("Hurtbox area entered")

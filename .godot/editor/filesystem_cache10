@@ -1,26 +1,44 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1778201721
+::res://::1779037884
+bg.gd::GDScript::4046266295163878137::1778835229::0::1::::<>ParallaxBackground<><>0<>0<><>::
+bg.tscn::PackedScene::4679760404520286620::1778854007::0::1::::<><><>0<>0<><>::uid://bxwbodn63v35f::::res://bg.gd<>uid://dujb1kdulm3hr::::res://background/background_0.png<>uid://bom4140plx0hf::::res://background/background_1.png<>uid://7yq1q0shuwh5::::res://background/background_2.png
 icon.svg::CompressedTexture2D::6690755006626238660::1769125302::1769125310::1::::<><><>0<>0<>4b9f2e782830540a6aa2482412660c3c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-new_script.gd::GDScript::6692689216763466684::1774811833::0::1::::<>CharacterBody2D<><>0<>0<><>::
+new_script.gd::GDScript::6692689216763466684::1778855706::0::1::::<>RefCounted<><>0<>0<><>::
 node_2d.tscn::PackedScene::5392763650903389803::1774738174::0::1::::<><><>0<>0<><>::
-::res://assets/::1769125620
-::res://enemies/::1778202279
-enemy_golem.tscn::PackedScene::2595349632585528814::1778201353::0::1::::<><><>0<>0<><>::
+::res://background/::1778824625
+background_0.png::CompressedTexture2D::8581726002052609727::1778787543::1778787544::1::::<><><>0<>0<>5368b0d0f512a21b4186a651256e35ab<>res://.godot/imported/background_0.png-74ec5b4af6d03554a0de562b9003223f.ctex::
+background_1.png::CompressedTexture2D::3395645813600455263::1778787550::1778787550::1::::<><><>0<>0<>87fcbfb660ade846ad5e0fc58a649978<>res://.godot/imported/background_1.png-cfb921181854b6c8e2a89d8eae493791.ctex::
+background_2.png::CompressedTexture2D::2296606844861978100::1778787553::1778787554::1::::<><><>0<>0<>63106e7bfba7e4d71adfd3700b0df000<>res://.godot/imported/background_2.png-b364b79dcdadc610a8c7c1960188362e.ctex::
+::res://enemies/::1779045731
+enemy_golem.gd::GDScript::2911385119565090334::1779045731::0::1::::<>CharacterBody2D<><>0<>0<><>::
+enemy_golem.tscn::PackedScene::2595349632585528814::1779043671::0::1::::<><><>0<>0<><>::uid://bhqkc8hqku03c::::res://enemies/enemy_golem.gd<>uid://c2ue8f4hl35eb::::res://enemies/Golem_1_idle.png<>uid://r3qtbbbbiv6w::::res://enemies/Golem_1_walk.png<>uid://cbcxlovsqpv18::::res://enemies/Golem_1_attack.png<>uid://5xspf211xqnf::::res://enemies/Golem_1_die.png<>uid://phtic4fqw14y::::res://enemies/Golem_1_hurt.png
+Golem_1_attack.png::CompressedTexture2D::4848575869706565089::1779039530::1779039531::1::::<><><>0<>0<>85f1a8a995dc46f266c3a341681d7699<>res://.godot/imported/Golem_1_attack.png-4461d643aa1bb420e34c7fd90b17a497.ctex::
+Golem_1_die.png::CompressedTexture2D::2154265995806174807::1779039526::1779039527::1::::<><><>0<>0<>8ae7ef8d230dbfe1445ab66ded2850a3<>res://.godot/imported/Golem_1_die.png-ec1856e8804df93cb4648d2b67047b57.ctex::
+Golem_1_hurt.png::CompressedTexture2D::1068451358158188778::1779039519::1779039519::1::::<><><>0<>0<>2eff211e6af61c602200ddc0ddf64dcd<>res://.godot/imported/Golem_1_hurt.png-372b1d24159424f71b3b8daba09fa775.ctex::
 Golem_1_idle.png::CompressedTexture2D::6709529807614161201::1778202275::1778202276::1::::<><><>0<>0<>ac5630f29a65cfc4c7b002618af773a9<>res://.godot/imported/Golem_1_idle.png-0d9e2a5fbd56aeda7b4fae6063fe986e.ctex::
 Golem_1_walk.png::CompressedTexture2D::1252018375043946808::1778202279::1778202280::1::::<><><>0<>0<>43841bd7f183c320d3c7512016b0f00a<>res://.godot/imported/Golem_1_walk.png-70070fa9eae00275227bcc2af6c4961b.ctex::
-::res://include/::1774736660
-::res://player/::1777616723
+::res://player/::1779053889
 1 - Idle.png::CompressedTexture2D::8110409081703920505::1774738564::1774738564::1::::<><><>0<>0<>1d14853b35917e87fd42f6cbc941ebc7<>res://.godot/imported/1 - Idle.png-cd736fc55472b9aee62f40cfb679f92b.ctex::
 2 - Run.png::CompressedTexture2D::4680953310817097829::1774738588::1774738588::1::::<><><>0<>0<>9c2871b17320a5584f6ae233f316a7a5<>res://.godot/imported/2 - Run.png-16159ef091657c3b069874bcebdc37c8.ctex::
 3 - jump.png::CompressedTexture2D::5683852656546450748::1777399112::1777399113::1::::<><><>0<>0<>b00cf35020a49537ce8b91419a311586<>res://.godot/imported/3 - jump.png-3bc04e8654ba7f8691ae4b3e98fe373a.ctex::
-player.gd::GDScript::5167958587570262357::1777402184::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::5436497206204332013::1777616723::0::1::::<><><>0<>0<><>::uid://cfvnr1pvrgyrt::::res://player/player.gd<>uid://dns0iubmwhk8x::::res://player/1 - Idle.png<>uid://b7xqu8n2qb5jt::::res://player/2 - Run.png<>uid://cm8khtugq4l4o::::res://player/3 - jump.png
-::res://scenes/::1778200662
-base_scena_1.tscn::PackedScene::3971161110152011391::1778200662::0::1::::<><><>0<>0<><>::uid://dbbghw1frb2nu::::res://scenes/tilesade1.png<>uid://cjpqkx2ej2xkv::::res://player/player.tscn
+5 - fall.png::CompressedTexture2D::4507469372887603121::1779045583::1779045584::1::::<><><>0<>0<>8c0316c137e0d9a8a3e2c7afc6f423e1<>res://.godot/imported/5 - fall.png-ab4a8938c04fbd6bf4710a931089e8f2.ctex::
+10 - attack 1.png::CompressedTexture2D::1539590113202332743::1779053873::1779053874::1::::<><><>0<>0<>61b78ada9d359948f4d7c8ef2acf970f<>res://.godot/imported/10 - attack 1.png-9c5e59446e4ac5c1b171e999a893d9cf.ctex::
+12 - dash attack.png::CompressedTexture2D::471307513544072234::1779053878::1779053879::1::::<><><>0<>0<>f703b104b638175b8e48c005c6ecc02d<>res://.godot/imported/12 - dash attack.png-ea248a9cc26648b87dec5b16c3115224.ctex::
+14 - hit.png::CompressedTexture2D::7920285362872269378::1779053882::1779053882::1::::<><><>0<>0<>c35f09623ac777b00683e6f1a36bb680<>res://.godot/imported/14 - hit.png-390ca0733db52b9cc53f50448f125741.ctex::
+15 - death.png::CompressedTexture2D::8634710729490669439::1779053889::1779053890::1::::<><><>0<>0<>9edb8b0c242fa353676232ee5dfbf514<>res://.godot/imported/15 - death.png-fb573075b7e33a74a5f4aee34493714b.ctex::
+player.gd::GDScript::5167958587570262357::1779046315::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::5436497206204332013::1779045861::0::1::::<><><>0<>0<><>::uid://cfvnr1pvrgyrt::::res://player/player.gd<>uid://dns0iubmwhk8x::::res://player/1 - Idle.png<>uid://b7xqu8n2qb5jt::::res://player/2 - Run.png<>uid://b5hpmkq57ohoj::::res://player/5 - fall.png<>uid://cm8khtugq4l4o::::res://player/3 - jump.png
+::res://scenes/::1779038868
+base_scena_1.tscn::PackedScene::3971161110152011391::1778871162::0::1::::<><><>0<>0<><>::uid://dbbghw1frb2nu::::res://scenes/tilesade1.png<>uid://cjpqkx2ej2xkv::::res://player/player.tscn<>uid://rjlu3pkwrwj2::::res://scenes/tileset_1.png<>uid://8k8j746jymvy::::res://scenes/game_tilesets_2.png
+game_tilesets_2.png::CompressedTexture2D::1775570997682023760::1778845477::1779034703::1::::<><><>0<>0<>9d4d32d05c9cc4feff9b3c07a261bcc5<>res://.godot/imported/game_tilesets_2.png-d535f268aba7df67c926e1bd210a8bca.ctex::
+level_1.gd::GDScript::9196840414142189658::1778855732::0::1::::<>Node2D<><>0<>0<><>::
+level_1.tscn::PackedScene::3267317010081482119::1779038868::0::1::::<><><>0<>0<><>::uid://bwtwpcpc16wpr::::res://scenes/base_scena_1.tscn<>uid://b7w578qohag33::::res://bg.tscn<>uid://dbbghw1frb2nu::::res://scenes/tilesade1.png<>uid://bc8ha83fxa4kw::::res://enemies/enemy_golem.tscn
 tilesade1.png::CompressedTexture2D::7231893270913912178::1774736666::1774736666::1::::<><><>0<>0<>91e985bf2b06f20d53bb9b50c37b363b<>res://.godot/imported/tilesade1.png-ce6bd31676994e4433d5045f90b41cf1.ctex::
-::res://scenes/test_levels/::1778200662
-test_scena_1.tscn::PackedScene::5697938549452792284::1778200662::0::1::::<><><>0<>0<><>::uid://bwtwpcpc16wpr::::res://scenes/base_scena_1.tscn
-::res://src/::1769125590
+tileset_1.png::CompressedTexture2D::1212494838741935373::1778842877::1778842877::1::::<><><>0<>0<>c7db6c3df07735632f234f1bb4541b9e<>res://.godot/imported/tileset_1.png-5af8f8ec0988595bc8c01a472c628ad0.ctex::
+::res://scenes/test_levels/::1778871164
+test_scena_1.tscn::PackedScene::5697938549452792284::1778871164::0::1::::<><><>0<>0<><>::uid://bwtwpcpc16wpr::::res://scenes/base_scena_1.tscn<>uid://b7w578qohag33::::res://bg.tscn<>uid://bc8ha83fxa4kw::::res://enemies/enemy_golem.tscn
+::res://scripts/::1778870939
+game_manager.gd::GDScript::8325678625673932536::1778870939::0::1::::<>Node<><>0<>0<><>::
 ::res://сцени розробка/::1772820678
 ::res://сцени розробка/Final/::1772702431
 ::res://сцени розробка/Final/Final/::1773685166
@@ -75,12 +93,13 @@ Platformer Asset All G.png::CompressedTexture2D::4842197268164729386::1772739570
 Platformer Asset All H.png::CompressedTexture2D::3425872348937999067::1772739570::1773685166::1::::<><><>0<>0<>cbb859bf7a56b628bc9719a3b68a1743<>res://.godot/imported/Platformer Asset All H.png-1cfa6e34fe45d10dbfcc1d8c4556645a.ctex::
 Platformer Asset All K.png::CompressedTexture2D::2211289654432819865::1772739570::1773685166::1::::<><><>0<>0<>361e10081b7ba1c3249078d2f7d8c349<>res://.godot/imported/Platformer Asset All K.png-64dcc535f8e8876bda71b9329c4d274c.ctex::
 Platformer Asset All Ram.png::CompressedTexture2D::6832362837254953538::1772739570::1773685167::1::::<><><>0<>0<>6417b89bab70ca615570141129e36d86<>res://.godot/imported/Platformer Asset All Ram.png-ba81515983251eb4203041eb8b59b39c.ctex::
-::res://сцени розробка/stringstar fields/::1773685166
+::res://сцени розробка/stringstar fields/::1778787253
 !readme!.txt::TextFile::-1::1772702469::0::1::::<><><>0<>0<><>::
 background_0.png::CompressedTexture2D::4538250922456640982::1772702469::1773685166::1::::<><><>0<>0<>08058423310dd426dc3a02c19a486e88<>res://.godot/imported/background_0.png-34bd6aff6e278e7efa640169e897d489.ctex::
 background_1.png::CompressedTexture2D::1963388754245526851::1772702469::1773685166::1::::<><><>0<>0<>4101ffab6f7a87873a311a0f445e1402<>res://.godot/imported/background_1.png-5be0bc91fe1d091609facef1d0881221.ctex::
 background_2.png::CompressedTexture2D::5371898792190633089::1772702469::1773685166::1::::<><><>0<>0<>c10efcc023549674dbe3988ed5954a9b<>res://.godot/imported/background_2.png-8c6d96e90ec1dd07df3db3d9dd862e9f.ctex::
 example.png::CompressedTexture2D::3494893860582590457::1772702469::1773685166::1::::<><><>0<>0<>7cd6a45c5e7b2511f4b2829395d76bb0<>res://.godot/imported/example.png-b10835192d8c3ee3200e0cff7fe00af6.ctex::
 tileset.png::CompressedTexture2D::7887341919109671982::1772702469::1773685166::1::::<><><>0<>0<>ad24e9a3d98c251b8f1e32791644760e<>res://.godot/imported/tileset.png-76a84e4cf2b11bc2b5cd285a340497c0.ctex::
+tileset_1.png::CompressedTexture2D::145391583837451195::1778786830::1778787253::1::::<><><>0<>0<>e53488fe9f7596600d13f4b7bfe72ad3<>res://.godot/imported/tileset_1.png-08e78760402bd4dfce6be7a42e1d68ee.ctex::
 ::res://сцени розробка/локація зелена/::1772722204
 ::res://сцени розробка/локація підземелля/::1772722377
