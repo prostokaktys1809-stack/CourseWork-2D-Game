@@ -227,13 +227,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iynn2")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
@@ -276,8 +271,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n2ift")
 }],
-"loop": true,
-"name": &"die",
+"loop": false,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -293,8 +288,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0kpba")
 }],
-"loop": true,
-"name": &"hurt",
+"loop": false,
+"name": &"hit",
 "speed": 5.0
 }, {
 "frames": [{
@@ -369,18 +364,17 @@ radius = 15.297058
 radius = 18.027756
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh7kp"]
-size = Vector2(28, 26)
+size = Vector2(28, 36)
 
 [node name="EnemyGolem" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_cr4xi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -29)
 sprite_frames = SubResource("SpriteFrames_hnwxi")
-animation = &"attack"
+animation = &"walk"
 autoplay = "idle"
-frame = 7
-frame_progress = 0.534323
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)
@@ -390,22 +384,24 @@ shape = SubResource("CircleShape2D_6uuye")
 wait_time = 2.0
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -18)
 shape = SubResource("CircleShape2D_cr4xi")
 debug_color = Color(0.8878487, 0.17038924, 0.6944952, 0.41960785)
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Area2D2" type="Area2D" parent="Node2D"]
+[node name="Hitbox" type="Area2D" parent="Node2D"]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
-position = Vector2(-18, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hitbox"]
+position = Vector2(-18, -15)
 shape = SubResource("RectangleShape2D_uh7kp")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Node2D/Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbbghw1frb2nu" path="res://scenes/tilesade1.png" id="1_vmk63"]
 [ext_resource type="PackedScene" uid="uid://cjpqkx2ej2xkv" path="res://player/player.tscn" id="2_oug0p"]
 [ext_resource type="Texture2D" uid="uid://rjlu3pkwrwj2" path="res://scenes/tileset_1.png" id="3_wimnj"]
-[ext_resource type="Texture2D" uid="uid://8k8j746jymvy" path="res://scenes/game_tilesets_2.png" id="4_lx84k"]
+[ext_resource type="Texture2D" uid="uid://0kdnor3xbids" path="res://scenes/game_tilesets_2.png" id="4_lx84k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oug0p"]
 texture = ExtResource("1_vmk63")
@@ -1579,7 +1579,6 @@ texture = ExtResource("1_vmk63")
 39:38/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wimnj"]
-load_path = "res://.godot/imported/game_tilesets_home.png-89bd91ff5888096e930f94eb54df6bee.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8bgd"]
 texture = SubResource("CompressedTexture2D_wimnj")

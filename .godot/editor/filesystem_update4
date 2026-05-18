@@ -1,5 +1,7 @@
-res://scenes/level_1.tscn
-res://enemies/enemy_golem.gd
-res://enemies/enemy_golem.tscn
 res://player/player.tscn
 res://player/player.gd
+res://enemies/enemy_golem.tscn
+res://scenes/level_1.tscn
+res://scenes/test_levels/test_scena_1.tscn
+res://scenes/base_scena_1.tscn
+res://enemies/enemy_golem.gd
