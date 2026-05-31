@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://cngehlbjgu2ia"]
+[gd_scene load_steps=5 format=4 uid="uid://cngehlbjgu2ia"]
 
 [ext_resource type="PackedScene" uid="uid://bwtwpcpc16wpr" path="res://scenes/base_scena_1.tscn" id="1_cd5oe"]
-[ext_resource type="PackedScene" uid="uid://b7w578qohag33" path="res://bg.tscn" id="2_584pr"]
+[ext_resource type="PackedScene" uid="uid://b7w578qohag33" path="res://background/bg.tscn" id="2_584pr"]
 [ext_resource type="PackedScene" uid="uid://bc8ha83fxa4kw" path="res://enemies/enemy_golem.tscn" id="2_s535v"]
+[ext_resource type="PackedScene" uid="uid://d0m730vw23kw" path="res://enemies/EnemyMage.tscn" id="4_hh0yx"]
 
 [node name="Test_scena_1" instance=ExtResource("1_cd5oe")]
 
@@ -28,7 +29,6 @@ position = Vector2(62, 0)
 position = Vector2(818, -37)
 patrol_points = NodePath("PatrolPoints")
 speed = 3000
-wsit_time = 1
 
 [node name="PatrolPoints" type="Node2D" parent="EnemyGolem2" index="3"]
 
@@ -36,4 +36,41 @@ wsit_time = 1
 position = Vector2(-81, -1)
 
 [node name="Point2" type="Marker2D" parent="EnemyGolem2/PatrolPoints" index="1"]
+position = Vector2(146, -2)
+
+[node name="EnemyMage" parent="." index="5" instance=ExtResource("4_hh0yx")]
+position = Vector2(2138, -23)
+
+[node name="PatrolPoints" type="Node2D" parent="EnemyMage" index="6"]
+
+[node name="Point1" type="Marker2D" parent="EnemyMage/PatrolPoints" index="0"]
+position = Vector2(-183, 6)
+
+[node name="Point2" type="Marker2D" parent="EnemyMage/PatrolPoints" index="1"]
+position = Vector2(325, 6)
+
+[node name="EnemyGolem3" parent="." index="6" node_paths=PackedStringArray("patrol_points") instance=ExtResource("2_s535v")]
+position = Vector2(1560, -31)
+patrol_points = NodePath("PatrolPoints")
+speed = 3000
+
+[node name="PatrolPoints" type="Node2D" parent="EnemyGolem3" index="3"]
+
+[node name="Point1" type="Marker2D" parent="EnemyGolem3/PatrolPoints" index="0"]
+position = Vector2(-81, -1)
+
+[node name="Point2" type="Marker2D" parent="EnemyGolem3/PatrolPoints" index="1"]
+position = Vector2(146, -2)
+
+[node name="EnemyGolem4" parent="." index="7" node_paths=PackedStringArray("patrol_points") instance=ExtResource("2_s535v")]
+position = Vector2(1195, -37)
+patrol_points = NodePath("PatrolPoints")
+speed = 3000
+
+[node name="PatrolPoints" type="Node2D" parent="EnemyGolem4" index="3"]
+
+[node name="Point1" type="Marker2D" parent="EnemyGolem4/PatrolPoints" index="0"]
+position = Vector2(-81, -1)
+
+[node name="Point2" type="Marker2D" parent="EnemyGolem4/PatrolPoints" index="1"]
 position = Vector2(146, -2)

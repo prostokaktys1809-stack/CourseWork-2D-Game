@@ -1,7 +1,6 @@
-res://player
-res://enemies
-res://scenes
 res://
-res://scripts
+res://enemies
+res://player
+res://scenes
 res://background
 res://scenes/test_levels

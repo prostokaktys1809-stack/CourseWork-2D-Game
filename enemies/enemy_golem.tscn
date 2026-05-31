@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bc8ha83fxa4kw"]
+[gd_scene load_steps=60 format=3 uid="uid://bc8ha83fxa4kw"]
 
 [ext_resource type="Script" uid="uid://bhqkc8hqku03c" path="res://enemies/enemy_golem.gd" id="1_cr4xi"]
 [ext_resource type="Texture2D" uid="uid://c2ue8f4hl35eb" path="res://enemies/Golem_1_idle.png" id="1_x67tj"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cbcxlovsqpv18" path="res://enemies/Golem_1_attack.png" id="2_uh7kp"]
 [ext_resource type="Texture2D" uid="uid://5xspf211xqnf" path="res://enemies/Golem_1_die.png" id="2_x14l4"]
 [ext_resource type="Texture2D" uid="uid://phtic4fqw14y" path="res://enemies/Golem_1_hurt.png" id="4_xs0vy"]
+[ext_resource type="Texture2D" uid="uid://dtcge7iyscotj" path="res://scenes/no health.png" id="7_12mvf"]
+[ext_resource type="Texture2D" uid="uid://dgj6cp3pi6rdr" path="res://scenes/empty health bar.png" id="8_a76ff"]
+[ext_resource type="Texture2D" uid="uid://ldnfxpkwstyy" path="res://scenes/health.png" id="9_piaav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0wsh"]
 atlas = ExtResource("2_uh7kp")
@@ -229,7 +232,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -273,7 +276,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -401,6 +404,17 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hitbox"]
 position = Vector2(-18, -15)
 shape = SubResource("RectangleShape2D_uh7kp")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -40.0
+offset_right = 16.0
+offset_bottom = -36.0
+max_value = 30.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_12mvf")
+texture_over = ExtResource("8_a76ff")
+texture_progress = ExtResource("9_piaav")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

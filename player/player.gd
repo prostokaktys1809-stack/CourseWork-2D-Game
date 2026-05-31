@@ -18,10 +18,15 @@ const GRAVITY = 1000
 
 @export_group("Combat")
 @export var health : int = 100
+signal health_changed(new_hp) 
 
+var max_hp = 100
+
+
+var is_dead: bool = false
 var is_dashing : bool = false
 var is_hit : bool = false
-var is_dead : bool = false
+
 var is_attacking : bool = false
 var current_state : State = State.Idle
 
@@ -73,6 +78,7 @@ func take_damage(amount: int):
 		return
 	
 	health -= amount
+	health_changed.emit(health)
 	print("Player Health: ", health)
 	
 	if health <= 0:

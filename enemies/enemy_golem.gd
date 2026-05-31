@@ -8,13 +8,13 @@ extends CharacterBody2D
 @export var health : int = 30
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var timer = $Timer
-
+@onready var health_bar = $TextureProgressBar
 const GRAVITY = 1000
 
 var is_hit : bool = false
 var is_dead : bool = false
 var can_walk : bool
-
+var home_position : Vector2
 enum State { Idle, Walk, Hit, Death, Attack }
 
 var current_state : State
@@ -36,6 +36,11 @@ func _ready():
 	timer.wait_time = wait_time
 	current_state = State.Idle
 	hitbox_collision.disabled = true
+	if health_bar:
+		health_bar.max_value = health
+		health_bar.value = health
+	if point_positions.size() > 0:
+		home_position = point_positions[0]
 
 func _physics_process(delta: float):
 	if is_dead or is_hit or current_state == State.Attack:
@@ -47,32 +52,62 @@ func _physics_process(delta: float):
 	
 	var player = get_tree().root.find_child("player", true, false)
 	
-
 	if player:
-		var distance = global_position.distance_to(player.global_position)
+		var dist_to_player = global_position.distance_to(player.global_position)
+		var dist_player_from_home = home_position.distance_to(player.global_position)
 		
-		if distance < 400 and distance > 60:   
-			can_walk = true
-			direction = (player.global_position - global_position).normalized()
-			velocity.x = direction.x * (speed * 0.7) * delta 
-			current_state = State.Walk
 
-			animated_sprite_2d.flip_h = direction.x > 0
-			attack_node.scale.x = -1 if direction.x > 0 else 1
-		elif distance <= 60:
-			velocity.x = 0
-			enemy_attack_logic()
+		if dist_to_player < 300 and dist_player_from_home < 400:
+			if dist_to_player <= 60:
+				velocity.x = 0
+				enemy_attack_logic()
+			else:
+
+				var dir_to_player = (player.global_position - global_position).normalized()
+				velocity.x = dir_to_player.x * (speed * 0.7) * delta
+				current_state = State.Walk
+				animated_sprite_2d.flip_h = dir_to_player.x > 0
+				attack_node.scale.x = -1 if dir_to_player.x > 0 else 1
 		else:
 
-			enemy_idle(delta)
-			enemy_walk(delta)
+			enemy_patrol_logic(delta)
 	else:
-
-		enemy_idle(delta)
-		enemy_walk(delta)
+		enemy_patrol_logic(delta)
 
 	move_and_slide()
 	enemy_animations()
+
+
+func enemy_patrol_logic(delta):
+
+	if can_walk:
+
+		if abs(global_position.x - current_point.x) > 15:
+
+			var dir_to_point = (current_point - global_position).normalized()
+			velocity.x = dir_to_point.x * speed * delta
+			current_state = State.Walk
+
+			animated_sprite_2d.flip_h = dir_to_point.x > 0
+			attack_node.scale.x = -1 if dir_to_point.x > 0 else 1
+		else:
+
+			velocity.x = 0
+			current_state = State.Idle
+			can_walk = false
+			
+
+			current_point_position += 1
+			if current_point_position >= number_of_points:
+				current_point_position = 0
+			current_point = point_positions[current_point_position]
+			
+
+			timer.start()
+	else:
+
+		velocity.x = move_toward(velocity.x, 0, speed * delta)
+		current_state = State.Idle
 
 func enemy_gravity(delta : float):
 	velocity.y += GRAVITY * delta 
@@ -125,6 +160,8 @@ func take_damage(amount: int):
 	if is_dead or is_hit:
 		return
 	health -= amount
+	if health_bar:
+		health_bar.value = health
 	if health <= 0:
 		start_death_logic()
 	else:
