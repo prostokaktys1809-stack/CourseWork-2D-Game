@@ -1,8 +1,8 @@
 extends CharacterBody2D
-
+# Посилання на вузли персонажа
 @onready var animation_sprite_2d = $AnimatedSprite2D
 @onready var sword_collision = $SwordArea/SwordCollision
-
+# Параметри руху та стрибка
 const GRAVITY = 1000
 @export var speed : int = 1000
 @export var max_horizontal_speed: int = 300
@@ -11,11 +11,11 @@ const GRAVITY = 1000
 @export var jump : int = -300
 @export var jump_horizontal_speed: int = 1000
 @export var max_jump_horizontal_speed: int = 300
-
+# Параметри ривка
 @export_group("Dash")
 @export var dash_speed : int = 300
 @export var dash_duration : float = 0.3
-
+#Параметри HP
 @export_group("Combat")
 @export var health : int = 100
 signal health_changed(new_hp) 
@@ -29,14 +29,14 @@ var is_hit : bool = false
 
 var is_attacking : bool = false
 var current_state : State = State.Idle
-
+# Стани гравця
 enum State{ Idle, Run, Jump, Fall, Attack, DashAttack, Hit, Death}
-
+# Початкове налаштування персонажа
 func _ready():
 	current_state = State.Idle
 	if sword_collision:
 		sword_collision.disabled = true
-
+# Основна логіка керування персонажем
 func _physics_process(delta :float):
 	if is_dead:
 		if not is_on_floor():
@@ -73,6 +73,7 @@ func _physics_process(delta :float):
 
 	if Engine.get_frames_drawn() % 30 == 0:
 		print("CURRENT STATE: ", State.keys()[current_state])
+# Отримання пошкодження
 func take_damage(amount: int):
 	if is_dead or is_dashing or is_hit: 
 		return
@@ -85,6 +86,7 @@ func take_damage(amount: int):
 		start_death_logic()
 	else:
 		start_hit_logic()
+# Логіка отримання удару
 func start_hit_logic():
 	is_hit = true
 	current_state = State.Hit
@@ -94,7 +96,7 @@ func start_hit_logic():
 	
 	is_hit = false
 	current_state = State.Idle
-	
+# Логіка смерті персонажа
 func start_death_logic():
 	is_dead = true
 	current_state = State.Death
@@ -107,18 +109,18 @@ func start_death_logic():
 	get_tree().reload_current_scene()
 	
 	print("State: ", State.keys()[current_state])
-	
+# Обробка падіння
 func player_falling(delta :float):
 	if !is_on_floor():
 		velocity.y += GRAVITY * delta
 		if velocity.y > 0:
 			current_state = State.Fall
 
-
+# Стан спокою
 func player_idle(_delta :float):
 	if is_on_floor() and velocity.x == 0:
 		current_state = State.Idle
-
+# Рух персонажа
 func player_run(delta :float):
 	if !is_on_floor():
 		return
@@ -139,7 +141,7 @@ func player_run(delta :float):
 			velocity.x = 0
 		current_state = State.Idle
 
-
+# Стрибок та рух у повітрі
 func player_jump(delta :float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump
@@ -153,7 +155,7 @@ func player_jump(delta :float):
 		var direction = input_movement()
 		velocity.x += direction * jump_horizontal_speed * delta
 		velocity.x = clamp(velocity.x, -max_jump_horizontal_speed, max_jump_horizontal_speed)
-
+# Керування анімаціями
 func player_animations():
 	if is_dead:
 		animation_sprite_2d.play("death")
@@ -174,7 +176,7 @@ func player_animations():
 		animation_sprite_2d.play("jump")
 	elif current_state == State.Fall:
 		animation_sprite_2d.play("fall")
-
+# Атака мечем
 func player_attack():
 	is_attacking = true
 	current_state = State.Attack
@@ -184,7 +186,7 @@ func player_attack():
 	sword_collision.set_deferred("disabled", true)
 	is_attacking = false
 	current_state = State.Idle
-
+# Виконання ривка з атакою
 func player_dash_attack():
 	is_dashing = true
 	is_attacking = true
@@ -204,11 +206,12 @@ func player_dash_attack():
 	is_dashing = false
 	is_attacking = false
 	current_state = State.Idle
-	
+# Отримання напрямку руху
 func input_movement():
 	var direction : float = Input.get_axis("move_left", "move_right")
 	
 	return direction
+# Нанесення шкоди ворогу
 func _on_sword_area_body_entered(body):
 	if body.has_method("take_damage") and is_attacking:
 		body.take_damage(10)

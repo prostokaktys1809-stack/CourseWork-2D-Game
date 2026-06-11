@@ -1,4 +1,6 @@
 res://scenes/level_1.tscn
+res://enemies/enemy_mage.gd
+res://enemies/enemy_golem.gd
 res://blacksmith.gd
-res://blacksmith.tscn
-res://player/player.tscn
+res://player/player.gd
+res://scenes/texture_progress_bar.gd

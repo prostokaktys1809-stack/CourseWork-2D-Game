@@ -1,7 +1,8 @@
 extends CharacterBody2D
-
+# Посилання на вузли персонажа
 @onready var hitbox_collision = $Node2D/Hitbox/CollisionShape2D
 @onready var attack_node = $Node2D
+# Основні параметри голема
 @export var patrol_points : Node
 @export var speed : int = 1500
 @export var wait_time : int = 2
@@ -15,6 +16,7 @@ var is_hit : bool = false
 var is_dead : bool = false
 var can_walk : bool
 var home_position : Vector2
+# Стани ворога
 enum State { Idle, Walk, Hit, Death, Attack }
 
 var current_state : State
@@ -23,7 +25,7 @@ var number_of_points : int
 var point_positions : Array[Vector2]
 var current_point : Vector2
 var current_point_position : int 
-
+# Ініціалізація ворога
 func _ready():
 	if patrol_points != null:
 		number_of_points = patrol_points.get_children().size()
@@ -41,7 +43,7 @@ func _ready():
 		health_bar.value = health
 	if point_positions.size() > 0:
 		home_position = point_positions[0]
-
+# Основна логіка поведінки
 func _physics_process(delta: float):
 	if is_dead or is_hit or current_state == State.Attack:
 		enemy_gravity(delta)
@@ -77,7 +79,7 @@ func _physics_process(delta: float):
 	move_and_slide()
 	enemy_animations()
 
-
+# Логіка патрулювання
 func enemy_patrol_logic(delta):
 
 	if can_walk:
@@ -108,15 +110,15 @@ func enemy_patrol_logic(delta):
 
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		current_state = State.Idle
-
+# Застосування гравітації
 func enemy_gravity(delta : float):
 	velocity.y += GRAVITY * delta 
-
+# Стан очікування
 func enemy_idle(delta : float):
 	if !can_walk: 
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		current_state = State.Idle
-
+# Рух між точками патрулювання
 func enemy_walk(delta : float):
 	if !can_walk:
 		return
@@ -134,7 +136,7 @@ func enemy_walk(delta : float):
 	
 	animated_sprite_2d.flip_h = direction.x > 0 
 	attack_node.scale.x = -1 if direction.x > 0 else 1
-
+# Керування анімаціями
 func enemy_animations():
 	if is_dead:
 		animated_sprite_2d.play("death")
@@ -146,16 +148,16 @@ func enemy_animations():
 		animated_sprite_2d.play("idle")
 	elif current_state == State.Walk:
 		animated_sprite_2d.play("walk")
-
+# Відновлення руху після очікування
 func _on_timer_timeout() -> void:
 	can_walk = true
-
+# Отримання пошкодження від гравця
 func _on_hurtbox_area_entered(area):
 	if area.name == "SwordArea":
 		take_damage(10)
 	else:
 		print("Ігнорую контакт з: ", area.name)
-
+# Обробка отримання шкоди
 func take_damage(amount: int):
 	if is_dead or is_hit:
 		return
@@ -166,7 +168,7 @@ func take_damage(amount: int):
 		start_death_logic()
 	else:
 		start_hit_logic()
-
+# Анімація отримання удару
 func start_hit_logic():
 	is_hit = true
 	can_walk = false 
@@ -177,7 +179,7 @@ func start_hit_logic():
 	is_hit = false
 	can_walk = true
 	current_state = State.Idle
-
+# Логіка смерті ворога
 func start_death_logic():
 	is_dead = true
 	current_state = State.Death
@@ -185,7 +187,7 @@ func start_death_logic():
 	animated_sprite_2d.play("death")
 	await animated_sprite_2d.animation_finished
 	queue_free() 
-
+# Виконання атаки
 func enemy_attack_logic():
 	current_state = State.Attack
 	can_walk = false
@@ -203,7 +205,7 @@ func enemy_attack_logic():
 	can_walk = true
 
 
-
+# Нанесення шкоди гравцю
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
 		if area.get_parent().has_method("take_damage"):

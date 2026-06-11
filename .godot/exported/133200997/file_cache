@@ -1,0 +1,9 @@
+res://background/bg.tscn::35b78f245e9aeaf4a3da6b4fcfeb2922::1779317505::res://.godot/exported/133200997/export-eba28943acc6b8b30b93a244ee25ec8f-bg.scn
+res://enemies/EnemyMage.tscn::da64db340a49317853290151ebb19437::1779388869::res://.godot/exported/133200997/export-eb1e6ccb8541452189a5064a6a2ade41-EnemyMage.scn
+res://enemies/enemy_golem.tscn::d380ab21bb4b3426e67f32a2bdef671a::1779387723::res://.godot/exported/133200997/export-6a2b1271c638a96179b68edf67157b1e-enemy_golem.scn
+res://player/player.tscn::68e09c650979a1dbf075eb0ce3554b07::1780258852::res://.godot/exported/133200997/export-753d15e03e0182f9d550ac833b42bb41-player.scn
+res://scenes/test_levels/test_scena_1.tscn::c7cc460ac7f64cafcc9ec142aa8c5569::1779387483::res://.godot/exported/133200997/export-c30de4c38cd7eeb49626326574b5f251-test_scena_1.scn
+res://scenes/base_scena_1.tscn::31d09c32ec63699c95fbde548181a430::1779337703::res://.godot/exported/133200997/export-1f8451b8f0d5101a8da1fab3447d508c-base_scena_1.scn
+res://scenes/level_1.tscn::b4356066b9cd6d962ec7cee1c82204da::1780367463::res://.godot/exported/133200997/export-6887eba858c6ae48b5ca13a7525fa2f9-level_1.scn
+res://blacksmith.tscn::e2e7a37c42a0cca04ddac7599e53b811::1780260527::res://.godot/exported/133200997/export-bf16baf7744c3ce940c8c490a5818843-blacksmith.scn
+res://default_bus_layout.tres::275e34e6461c8e991f22b50bb53315cd::1780362745::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
